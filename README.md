@@ -545,7 +545,7 @@ const char* password = "Password";
 
 // ====== OpenWeatherMap API ======
 const char* weatherApiKey = "your_API_KEY";  // Get free key from openweathermap.org
-const char* city = "Hoofddorp";
+const char* city = "Amsterdam";
 const char* countryCode = "NL";
 
 // ====== Sensor Settings ======
