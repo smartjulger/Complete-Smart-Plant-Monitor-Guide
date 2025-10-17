@@ -1,6 +1,6 @@
 Complete Smart Plant Monitor Guide
-# quick note
-## at the end of every step are some troubleshoots for if you run into any problems
+### Quick note 
+at the end of every step are some troubleshoots for problems some things are from my own expiriance wich will have a picture of the error others have some general problem solutions because i did not run into any problems at that stage.
 
 # What You Need
 ## Hardware
