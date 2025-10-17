@@ -208,4 +208,13 @@ void loop() {
 ```
 ### calibration
 now we will callibrate the sensor 
+- Upload the code
+- Open Serial Monitor (115200 baud)
+- Hold sensor in dry air → note value
+- Put sensor in glass of water → note value
+- update the values in the code
+- upload the new code and test it
 
+
+# step 4
+## Adding BH1750 Light Sensor
