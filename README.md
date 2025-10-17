@@ -89,7 +89,7 @@ Try Solution 1 first - it works in 90% of cases!
 
 
 # step 2
-connecting the led strip to the arduino board.
+##connecting the led strip to the arduino board.
 
 
 <img width="231" height="126" alt="image" src="https://github.com/user-attachments/assets/5a4e6d1e-e27b-46b7-ba84-ac1c2e993ff6" />
@@ -151,3 +151,59 @@ void loop() {
   delay(1000);
 }
 ```
+## troubleshoot
+if you have any problems with the led lights try these things
+
+No light? Check if VIN (5V) is connected, not 3V3
+
+Wrong colors? Try NEO_RGB instead of NEO_GRB
+
+First LED works, rest don't? Check if data line is properly connected
+
+# step 3
+## connecting the moisture sensor
+
+<img width="223" height="133" alt="image" src="https://github.com/user-attachments/assets/735c4714-b47e-4510-86e6-4ccedbc5897b" />
+
+once everything is connected try this code 
+```ruby
+const int moistureSensorPin = A0;
+
+// Calibration values (adjust these!)
+int dryValue = 850;  // Sensor in dry air
+int wetValue = 450;  // Sensor in water
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("\n=== Moisture Sensor Test ===");
+  Serial.println("Tip: Calibrate your sensor first!");
+  Serial.println();
+}
+
+void loop() {
+  // Read raw value
+  int sensorValue = analogRead(moistureSensorPin);
+  
+  // Convert to percentage (0-100%)
+  int moisturePercent = map(sensorValue, dryValue, wetValue, 0, 100);
+  moisturePercent = constrain(moisturePercent, 0, 100);
+  
+  // Print results
+  Serial.print("Raw value: ");
+  Serial.print(sensorValue);
+  Serial.print(" | Moisture: ");
+  Serial.print(moisturePercent);
+  Serial.print("% | Status: ");
+  
+  if (moisturePercent >= 60) {
+    Serial.println("WET 💧");
+  } else if (moisturePercent >= 30) {
+    Serial.println("NORMAL 🌿");
+  } else {
+    Serial.println("DRY ☀️");
+  }
+  
+  delay(1000);
+}
+```
+
