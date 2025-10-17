@@ -526,7 +526,10 @@ if everything works you should see something like this in your serial moniter
 
  # final step
 
- now we will put everthing together with this code
+ now we will put everthing together with this code but before we do that make sure everthing is connectes as shown 
+ 
+ <img width="344" height="332" alt="image" src="https://github.com/user-attachments/assets/f8b69165-2ad1-4f94-8a17-4ddcc5374c4c" />
+
 
 ```ruby
 
