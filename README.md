@@ -206,4 +206,6 @@ void loop() {
   delay(1000);
 }
 ```
+### calibration
+now we will callibrate the sensor 
 
