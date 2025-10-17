@@ -196,11 +196,11 @@ void loop() {
   Serial.print("% | Status: ");
   
   if (moisturePercent >= 60) {
-    Serial.println("WET 💧");
+    Serial.println("WET");
   } else if (moisturePercent >= 30) {
-    Serial.println("NORMAL 🌿");
+    Serial.println("NORMAL");
   } else {
-    Serial.println("DRY ☀️");
+    Serial.println("DRY");
   }
   
   delay(1000);
