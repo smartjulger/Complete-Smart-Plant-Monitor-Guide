@@ -283,5 +283,55 @@ if you get the same error it might be some of these things go ahead and try them
 - make sure its in the right pin
 - check if the pins are really connected and not lose
 - try a diffrent sensor to see if that is the problem
-- 
+
+
+  #step 5
+  ##Wifi connection
+
+  now we will try and connect the arduino to wifi. before we begin some important notes make sure that the wifi or hotspot you are gonna use is on 2.4 ghz otherwise this wil not work because the arduino only works at 2.4ghz.
+```ruby
+  #include <ESP8266WiFi.h>
+
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+  Serial.println("\n=== WiFi Connection Test ===");
+  
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
+  
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  
+  int attempts = 0;
+  while (WiFi.status() != WL_CONNECTED && attempts < 20) {
+    delay(500);
+    Serial.print(".");
+    attempts++;
+  }
+  
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("\n✓ WiFi connected!");
+    Serial.print("IP address: ");
+    Serial.println(WiFi.localIP());
+    Serial.print("Signal strength: ");
+    Serial.print(WiFi.RSSI());
+    Serial.println(" dBm");
+  } else {
+    Serial.println("\n✗ Connection failed!");
+    Serial.println("Check your SSID and password");
+  }
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    Serial.println("WiFi still connected ✓");
+  } else {
+    Serial.println("WiFi connection lost!");
+  }
+  delay(5000);
+}```
 
