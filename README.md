@@ -214,6 +214,12 @@ now we will callibrate the sensor
 <img width="1919" height="813" alt="image" src="https://github.com/user-attachments/assets/7bccadc2-832b-445d-acfd-be9b05178a64" />
 
 
+<img width="1852" height="196" alt="image" src="https://github.com/user-attachments/assets/7057ca2f-e6c7-433b-886c-297d01035e4e" />
+
+make sure that it is set to 115200 baud if needed chance it
+
+
+
 - Hold sensor in dry air → note value
 - Put sensor in glass of water → note value
 - update the values in the code
