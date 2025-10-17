@@ -1,5 +1,6 @@
 Complete Smart Plant Monitor Guide
-
+# quick note
+## at the end of every step are some troubleshoots for if you run into any problems
 
 # What You Need
 ## Hardware
@@ -218,3 +219,69 @@ now we will callibrate the sensor
 
 # step 4
 ## Adding BH1750 Light Sensor
+<img width="229" height="158" alt="image" src="https://github.com/user-attachments/assets/befa4023-5a5e-4da3-9d22-c835dcc182b7" />
+
+now try this test code 
+```ruby
+#include <Wire.h>
+#include <BH1750.h>
+
+BH1750 lightMeter;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("\n=== BH1750 Light Sensor Test ===");
+  
+  // Start I2C bus
+  Wire.begin(D2, D5);  // SDA = D2, SCL = D5
+  
+  // Initialize sensor
+  if (lightMeter.begin(BH1750::CONTINUOUS_HIGH_RES_MODE)) {
+    Serial.println("✓ BH1750 successfully connected!");
+  } else {
+    Serial.println("✗ BH1750 not found!");
+    Serial.println("Check your wiring:");
+    Serial.println("  VCC → 3V3");
+    Serial.println("  GND → GND");
+    Serial.println("  SDA → D2");
+    Serial.println("  SCL → D5");
+  }
+}
+
+void loop() {
+  float lux = lightMeter.readLightLevel();
+  
+  Serial.print("Light intensity: ");
+  Serial.print(lux);
+  Serial.print(" lux | ");
+  
+  // Interpretation
+  if (lux < 50) {
+    Serial.println("Very dark");
+  } else if (lux < 200) {
+    Serial.println("Dark");
+  } else if (lux < 500) {
+    Serial.println("Indoor lighting");
+  } else if (lux < 1000) {
+    Serial.println("Overcast");
+  } else if (lux < 10000) {
+    Serial.println("Bright daylight");
+  } else {
+    Serial.println("Direct sunlight");
+  }
+  
+  delay(1000);
+}
+```
+
+if it works you should see the value chance in the serial moniter.
+
+while making this guide my light sensor stopped working 
+<img width="307" height="17" alt="image" src="https://github.com/user-attachments/assets/1d732d0a-3199-41c3-bbdd-a0dc48699641" />
+if you get the same error it might be some of these things go ahead and try them all
+
+- make sure its in the right pin
+- check if the pins are really connected and not lose
+- try a diffrent sensor to see if that is the problem
+- 
+
