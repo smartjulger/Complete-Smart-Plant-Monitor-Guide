@@ -946,4 +946,4 @@ if everything works you should see something like this
 inside the serial moniter it will also display some messages.
 <img width="923" height="15" alt="image" src="https://github.com/user-attachments/assets/1a8f3195-3d85-47a2-b7b8-4a52a2713f2d" />
 
-
+feel free to add anything else to your own project you can add a message that will be send to your phone or give your plant a voice if you like.
