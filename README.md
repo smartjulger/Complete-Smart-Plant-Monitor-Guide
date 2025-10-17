@@ -211,6 +211,9 @@ void loop() {
 now we will callibrate the sensor 
 - Upload the code
 - Open Serial Monitor (115200 baud)
+<img width="1919" height="813" alt="image" src="https://github.com/user-attachments/assets/7bccadc2-832b-445d-acfd-be9b05178a64" />
+
+
 - Hold sensor in dry air → note value
 - Put sensor in glass of water → note value
 - update the values in the code
@@ -285,8 +288,8 @@ if you get the same error it might be some of these things go ahead and try them
 - try a diffrent sensor to see if that is the problem
 
 
-  #step 5
-  ##Wifi connection
+  # step 5
+  ## Wifi connection
 
   now we will try and connect the arduino to wifi. before we begin some important notes make sure that the wifi or hotspot you are gonna use is on 2.4 ghz otherwise this wil not work because the arduino only works at 2.4ghz.
 ```ruby
@@ -333,5 +336,13 @@ void loop() {
     Serial.println("WiFi connection lost!");
   }
   delay(5000);
-}```
+}
+```
+<img width="657" height="182" alt="image" src="https://github.com/user-attachments/assets/ab24be93-1658-4a5d-b4bb-188964d97a53" />
 
+if you get this error make sure that you correctly typed your wifi and pasword as it is really sensitive for cappital letters.
+
+
+<img width="297" height="65" alt="image" src="https://github.com/user-attachments/assets/328e35f8-18e5-43ea-99aa-c6a52c62a9ba" />
+
+if it works you should see this in the serial moniter
